@@ -111,6 +111,10 @@ footer > div { display: flex; gap: 24px; }
 .policy-heading > p:last-child { margin: 24px 0 0; color: var(--muted); }
 .policy-content { max-width: 680px; margin: 70px auto 0; }
 .policy-content h2 { margin: 54px 0 14px; font-size: 25px; letter-spacing: -.035em; }
+.policy-section { margin-top: 110px; padding-top: 80px; border-top: 1px solid var(--line); }
+.policy-section-title { margin: 0 !important; font-size: clamp(42px, 6vw, 64px) !important; }
+.policy-meta { margin: 24px 0 0; color: var(--muted); }
+.policy-content h3 { margin: 44px 0 14px; font-size: 20px; letter-spacing: -.03em; }
 .policy-content p, .policy-content li { color: var(--muted); font-size: 16px; line-height: 1.75; }
 .policy-content ul { padding-left: 22px; }
 .policy-content li + li { margin-top: 8px; }
