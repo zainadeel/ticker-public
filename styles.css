@@ -209,8 +209,6 @@ footer > div { display: flex; gap: 24px; }
 .overview-page__device {
   width: 100%;
   aspect-ratio: 480 / 936.044;
-  overflow: hidden;
-  border-radius: 40px;
   background: var(--surface);
 }
 
