@@ -209,7 +209,6 @@ footer > div { display: flex; gap: 24px; }
 .overview-page__device {
   width: 100%;
   aspect-ratio: 480 / 936.044;
-  background: var(--surface);
 }
 
 .overview-page__device picture,
@@ -266,12 +265,6 @@ footer.site-footer > * {
   font-size: var(--font-small);
   line-height: var(--font-small-line-height);
 }
-
-  @media (prefers-color-scheme: dark) {
-    .overview-page__device {
-      background: var(--surface);
-    }
-  }
 
 .support-page__content {
   width: min(640px, calc(100vw - var(--page-padding) - var(--page-padding)));
