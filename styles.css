@@ -224,12 +224,33 @@ footer > div { display: flex; gap: 24px; }
 
   .overview-page__store {
     display: flex;
+  }
+
+.overview-page__store-badge {
+  display: none;
 }
 
-.overview-page__store img {
+.overview-page__store-badge img {
   display: block;
   width: 119.664px;
   height: 40px;
+}
+
+.overview-page[data-store-state="available"] .overview-page__store-badge {
+  display: inline-flex;
+}
+
+.overview-page__coming-soon {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--font-large);
+  font-weight: var(--font-large-weight);
+  line-height: var(--font-large-line-height);
+  letter-spacing: var(--font-large-letter-spacing);
+}
+
+.overview-page[data-store-state="available"] .overview-page__coming-soon {
+  display: none;
 }
 
   .overview-page__footer {

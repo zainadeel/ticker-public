@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="assets/ticker-favicon-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="overview-page">
+<body class="overview-page" data-store-state="coming-soon">
   <main id="top" class="overview-page__content">
     <div class="overview-page__intro">
       <h1>Ticker</h1>
@@ -25,7 +25,10 @@
     </div>
 
     <div class="overview-page__store">
-      <img src="assets/app-store-badge.svg" alt="Download on the App Store">
+      <a class="overview-page__store-badge" href="https://apps.apple.com/app/id6743096406" aria-label="Download Ticker on the App Store">
+        <img src="assets/app-store-badge.svg" alt="Download on the App Store">
+      </a>
+      <p class="overview-page__coming-soon">Coming soon</p>
     </div>
 
     <div class="overview-page__footer" role="contentinfo">
