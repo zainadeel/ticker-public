@@ -9,8 +9,8 @@
   <title>Ticker · Each second ticks with intention</title>
   <link rel="icon" type="image/png" href="assets/ticker-favicon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="assets/ticker-favicon-dark.png" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="styles.css">
-  <script src="dial.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261005">
+  <script src="dial.js?v=20261005" defer></script>
 </head>
 <body class="overview-page" data-store-state="available">
   <main id="top" class="overview-page__content">
@@ -18,14 +18,14 @@
       <h1>Ticker</h1>
       <div class="overview-page__device" aria-label="Interactive Ticker preview">
         <picture class="device-fallback">
-          <source media="(prefers-color-scheme: dark)" srcset="assets/device-dark.png">
-          <img class="overview-page__device-image" src="assets/device-light.png" width="1440" height="2760" alt="Ticker timer interface showing 30 seconds">
+          <source media="(prefers-color-scheme: dark)" srcset="assets/device-dark.png?v=20261005">
+          <img class="overview-page__device-image" src="assets/device-light.png?v=20261005" width="1440" height="2760" alt="Ticker timer interface showing 30 seconds">
         </picture>
         <div class="device-demo" hidden>
           <div class="device-demo__labels" aria-hidden="true">
             <picture class="device-demo__paint">
-              <source media="(prefers-color-scheme: dark)" srcset="assets/dial-labels-dark.png">
-              <img src="assets/dial-labels-light.png" width="1200" height="1200" alt="" draggable="false">
+              <source media="(prefers-color-scheme: dark)" srcset="assets/dial-labels-dark.png?v=20261005">
+              <img src="assets/dial-labels-light.png?v=20261005" width="1200" height="1200" alt="" draggable="false">
             </picture>
             <div class="device-demo__cast-shadow"></div>
             <div class="device-demo__glass-tint"></div>
@@ -56,8 +56,8 @@
             <div class="bevel-multiply"></div>
           </div>
           <picture class="device-demo__frame" aria-hidden="true">
-            <source media="(prefers-color-scheme: dark)" srcset="assets/device-frame-dark.png">
-            <img src="assets/device-frame-light.png" width="1440" height="2760" alt="" draggable="false">
+            <source media="(prefers-color-scheme: dark)" srcset="assets/device-frame-dark.png?v=20261005">
+            <img src="assets/device-frame-light.png?v=20261005" width="1440" height="2760" alt="" draggable="false">
           </picture>
           <svg class="device-demo__interaction" viewBox="0 0 400 400">
             <path class="device-demo__dial-hit" d="M200 0a200 200 0 1 0 0 400a200 200 0 1 0 0-400 M200 120a80 80 0 1 0 0 160a80 80 0 1 0 0-160" fill-rule="evenodd" role="slider" tabindex="0" aria-label="Timer duration preview" aria-description="Drag the ring, or use the arrow keys to change duration." aria-valuemin="0" aria-valuemax="21600" aria-valuenow="30" aria-valuetext="30 seconds" aria-orientation="horizontal"></path>
