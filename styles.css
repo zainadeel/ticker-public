@@ -208,6 +208,7 @@ footer > div { display: flex; gap: 24px; }
 
 .overview-page__device {
   width: 100%;
+  container-type: inline-size;
 }
 
 .overview-page__device picture,
@@ -373,3 +374,106 @@ footer.site-footer > * {
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* The demo shares Ticker's 1.2 × 2.3 case and 1.0-diameter rings. */
+:root[data-appearance="light"] {
+  color-scheme: light;
+  --ink: rgba(0,0,0,.5); --muted: rgba(0,0,0,.5); --paper: #fff;
+  --surface: #e6e6e5; --line: rgba(23,23,23,.13);
+  --device-surface: color(display-p3 .9 .9 .9);
+  --device-accent: color(display-p3 1 .055 0);
+  --device-tick: #000;
+}
+:root[data-appearance="dark"] {
+  color-scheme: dark;
+  --ink: rgba(255,255,255,.5); --muted: rgba(255,255,255,.5); --paper: #000;
+  --surface: #1f1f1f; --line: rgba(255,255,255,.13);
+  --device-surface: color(display-p3 .12 .12 .12);
+  --device-accent: color(display-p3 1 .231 .188);
+  --device-tick: #fff;
+}
+.device-demo[hidden], .device-fallback[hidden] { display: none; }
+.device-demo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 480 / 920;
+  isolation: isolate;
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: 12.5% / 6.52174%;
+  box-shadow: 0 4.66667cqw 4.66667cqw rgba(0,0,0,.025);
+}
+.device-demo__labels {
+  position: absolute;
+  left: 8.33333%; top: 4.34783%; width: 83.33333%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  isolation: isolate;
+  container-type: inline-size;
+}
+.device-demo__labels > *, .device-demo__labels img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+.device-demo__paint { transform: rotate(-90deg); will-change: transform; }
+.device-demo__cast-shadow {
+  inset: auto;
+  width: 40%; height: 40%; left: 30%; top: 32.5%;
+  border-radius: 50%; background: rgba(0,0,0,.1);
+  filter: blur(2px);
+  filter: blur(.5cqw);
+}
+.device-demo__glass-tint { background: rgba(0,0,0,.05); mix-blend-mode: overlay; }
+.device-demo__glass-coating {
+  background: conic-gradient(from 180deg, transparent, var(--device-surface) 90deg, var(--device-surface) 270deg, transparent);
+}
+.device-demo__control, .device-demo__interaction {
+  display: block; position: absolute;
+  left: 8.33333%; top: 52.17391%; width: 83.33333%; height: 43.47826%;
+}
+.device-demo__control { pointer-events: none; }
+.device-demo__ticks line { stroke: var(--device-tick); stroke-width: 2; }
+.device-demo__ticks .tick-major { stroke-opacity: .16; }
+.device-demo__ticks .tick-minor { stroke-opacity: .06; }
+.device-demo__ticks .dial-pointer { stroke: var(--device-accent); stroke-width: 4; }
+.device-demo__frame { position: absolute; inset: 0; pointer-events: none; }
+.device-demo__frame img { display: block; width: 100%; height: 100%; }
+.device-demo__interaction { overflow: visible; pointer-events: none; touch-action: pan-y; }
+.device-demo__dial-hit {
+  fill: transparent;
+  pointer-events: fill;
+  touch-action: none;
+  cursor: grab;
+  outline: none;
+}
+.is-dragging .device-demo__dial-hit { cursor: grabbing; }
+.device-demo:not(.has-pointer-focus) .device-demo__dial-hit:focus-visible { stroke: var(--device-accent); stroke-width: 1; stroke-opacity: .7; }
+.device-demo__support {
+  position: absolute;
+  left: 79.16667%; top: 4.34783%; width: 8.33333%; height: 4.34783%;
+  border-radius: 50%;
+}
+.device-demo__support:focus-visible { outline: 2px solid var(--device-accent); outline-offset: 4px; }
+
+.device-demo__control-well {
+  position: absolute; left: 8.33333%; top: 52.17391%; width: 83.33333%;
+  aspect-ratio: 1; border-radius: 50%; background: var(--device-surface);
+}
+.device-demo__bevel {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  mask-image: radial-gradient(circle closest-side, transparent 98%, rgba(0,0,0,0.000000) 98.000000%, rgba(0,0,0,0.011230) 98.125000%, rgba(0,0,0,0.042969) 98.250000%, rgba(0,0,0,0.092285) 98.375000%, rgba(0,0,0,0.156250) 98.500000%, rgba(0,0,0,0.231934) 98.625000%, rgba(0,0,0,0.316406) 98.750000%, rgba(0,0,0,0.406738) 98.875000%, rgba(0,0,0,0.500000) 99.000000%, rgba(0,0,0,0.593262) 99.125000%, rgba(0,0,0,0.683594) 99.250000%, rgba(0,0,0,0.768066) 99.375000%, rgba(0,0,0,0.843750) 99.500000%, rgba(0,0,0,0.907715) 99.625000%, rgba(0,0,0,0.957031) 99.750000%, rgba(0,0,0,0.988770) 99.875000%, rgba(0,0,0,1.000000) 100.000000%);
+}
+.bevel-overlay { background: linear-gradient(rgba(255,255,255,.5), rgba(0,0,0,.5)); mix-blend-mode: overlay; }
+.bevel-screen { background: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,0) 50%, rgba(255,255,255,0)); mix-blend-mode: screen; }
+.bevel-multiply { background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) 50%, rgba(0,0,0,.1)); mix-blend-mode: multiply; }
+.device-demo__button-bevel {
+  position: absolute; left: 32.5%; top: 64.78261%; width: 35%; height: 18.26087%;
+  border-radius: 50%; pointer-events: none;
+}
+.device-demo__button-bevel > * {
+  position: absolute; inset: 0; border-radius: 50%;
+  mask-image: radial-gradient(circle closest-side, transparent 95.238095%, rgba(0,0,0,1.000000) 95.238095%, rgba(0,0,0,0.988770) 95.535714%, rgba(0,0,0,0.957031) 95.833333%, rgba(0,0,0,0.907715) 96.130952%, rgba(0,0,0,0.843750) 96.428571%, rgba(0,0,0,0.768066) 96.726190%, rgba(0,0,0,0.683594) 97.023810%, rgba(0,0,0,0.593262) 97.321429%, rgba(0,0,0,0.500000) 97.619048%, rgba(0,0,0,0.406738) 97.916667%, rgba(0,0,0,0.316406) 98.214286%, rgba(0,0,0,0.231934) 98.511905%, rgba(0,0,0,0.156250) 98.809524%, rgba(0,0,0,0.092285) 99.107143%, rgba(0,0,0,0.042969) 99.404762%, rgba(0,0,0,0.011230) 99.702381%, rgba(0,0,0,0.000000) 100.000000%);
+}
+.device-demo__button-bevel .bevel-overlay { background: linear-gradient(rgba(0,0,0,.5), rgba(255,255,255,.5)); }
+.device-demo__button-bevel .bevel-screen { background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(255,255,255,.1)); }
+.device-demo__button-bevel .bevel-multiply { background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,0) 50%, rgba(0,0,0,0)); }

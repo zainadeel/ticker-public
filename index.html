@@ -10,16 +10,60 @@
   <link rel="icon" type="image/png" href="assets/ticker-favicon-light.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="assets/ticker-favicon-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="styles.css">
+  <script src="dial.js" defer></script>
 </head>
 <body class="overview-page" data-store-state="available">
   <main id="top" class="overview-page__content">
     <div class="overview-page__intro">
       <h1>Ticker</h1>
-      <div class="overview-page__device" aria-label="Ticker timer interface preview">
-        <picture>
+      <div class="overview-page__device" aria-label="Interactive Ticker preview">
+        <picture class="device-fallback">
           <source media="(prefers-color-scheme: dark)" srcset="assets/device-dark.png">
           <img class="overview-page__device-image" src="assets/device-light.png" width="1440" height="2760" alt="Ticker timer interface showing 30 seconds">
         </picture>
+        <div class="device-demo" hidden>
+          <div class="device-demo__labels" aria-hidden="true">
+            <picture class="device-demo__paint">
+              <source media="(prefers-color-scheme: dark)" srcset="assets/dial-labels-dark.png">
+              <img src="assets/dial-labels-light.png" width="1200" height="1200" alt="" draggable="false">
+            </picture>
+            <div class="device-demo__cast-shadow"></div>
+            <div class="device-demo__glass-tint"></div>
+            <div class="device-demo__glass-coating"></div>
+            <div class="device-demo__bevel bevel-overlay"></div>
+            <div class="device-demo__bevel bevel-screen"></div>
+            <div class="device-demo__bevel bevel-multiply"></div>
+          </div>
+          <div class="device-demo__control-well" aria-hidden="true">
+            <div class="device-demo__bevel bevel-overlay"></div>
+            <div class="device-demo__bevel bevel-screen"></div>
+            <div class="device-demo__bevel bevel-multiply"></div>
+          </div>
+          <svg class="device-demo__control" viewBox="0 0 400 400" aria-hidden="true">
+            <defs>
+              <clipPath id="control-opening">
+                <path d="M200 .5a199.5 199.5 0 1 0 0 399a199.5 199.5 0 1 0 0-399 M200 119.5a80.5 80.5 0 1 0 0 161a80.5 80.5 0 1 0 0-161" clip-rule="evenodd"></path>
+              </clipPath>
+              <filter id="pointer-shadow" filterUnits="userSpaceOnUse" x="0" y="0" width="400" height="400">
+                <feDropShadow dx="0" dy="0" stdDeviation=".7" flood-opacity=".25"></feDropShadow>
+              </filter>
+            </defs>
+            <g class="device-demo__ticks" transform="rotate(90 200 200)" clip-path="url(#control-opening)" aria-hidden="true"></g>
+          </svg>
+          <div class="device-demo__button-bevel" aria-hidden="true">
+            <div class="bevel-overlay"></div>
+            <div class="bevel-screen"></div>
+            <div class="bevel-multiply"></div>
+          </div>
+          <picture class="device-demo__frame" aria-hidden="true">
+            <source media="(prefers-color-scheme: dark)" srcset="assets/device-frame-dark.png">
+            <img src="assets/device-frame-light.png" width="1440" height="2760" alt="" draggable="false">
+          </picture>
+          <svg class="device-demo__interaction" viewBox="0 0 400 400">
+            <path class="device-demo__dial-hit" d="M200 0a200 200 0 1 0 0 400a200 200 0 1 0 0-400 M200 120a80 80 0 1 0 0 160a80 80 0 1 0 0-160" fill-rule="evenodd" role="slider" tabindex="0" aria-label="Timer duration preview" aria-description="Drag the ring, or use the arrow keys to change duration." aria-valuemin="0" aria-valuemax="21600" aria-valuenow="30" aria-valuetext="30 seconds" aria-orientation="horizontal"></path>
+          </svg>
+          <a class="device-demo__support" href="support.html" aria-label="Support &amp; Privacy"></a>
+        </div>
       </div>
       <p>An expression to find tangibility in our digital lives.</p>
     </div>
